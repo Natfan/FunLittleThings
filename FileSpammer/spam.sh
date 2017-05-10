@@ -4,5 +4,5 @@ for (( ; ; ))
 do
 	let "i++"
 	touch $i.spam
-	echo "+1 spammed files, now at $1 files."
+	echo "+1 spammed files, now at $i files."
 done
