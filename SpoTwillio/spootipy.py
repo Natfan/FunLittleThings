@@ -7,7 +7,7 @@ import json
 
 client_id = '04ba7c46b6224c5f9e3721469ea10bb3'
 client_secret = '43077ed6c459406c8bc4d984c7fec45e'
-redirect_uri = 'http://localhost:8888/'
+redirect_uri = 'http://localhost:6666/'
 username = 'ryankrage77'
 user_id = '21gwsd5wok363feqdz27rgu2q'
 playlist = '7rDiVWYOh2abdvBB6Zcxva'
