@@ -5,12 +5,17 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy.util as util
 import json
 
-client_id = '04ba7c46b6224c5f9e3721469ea10bb3'
-client_secret = '43077ed6c459406c8bc4d984c7fec45e'
+with open('.client_id.txt', 'r' as client_idFile:
+    client_id = client_idFile.read()
+with open('.client_secret.txt', 'r' as client_secretFile:
+    client_secret = client_secretFile.read()
+with open('.username.txt', 'r' as usernameFile:
+    username = usernameFile.read()
+with open('.user_id.txt', 'r' as user_idFile:
+    user_id = user_idFile.read()
+with open('.playlist.txt', 'r' as playlistFile:
+    playlist = playlistFile.read()
 redirect_uri = 'http://localhost:6666/'
-username = 'ryankrage77'
-user_id = '21gwsd5wok363feqdz27rgu2q'
-playlist = '7rDiVWYOh2abdvBB6Zcxva'
 
 scope = 'playlist-modify-private user-library-read user-library-modify playlist-modify-public playlist-read-collaborative playlist-read-private'
 token = util.prompt_for_user_token(client_id, scope)
