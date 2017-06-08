@@ -2,13 +2,6 @@ html {
     background-color: #000;
 }
 
-.container {
-    border-style: solid;
-    border-width: 4px;
-    border-color: #FFF;
-    padding: 10% 0;
-}
-
 .outer {
     display: table;
     position: absolute;
@@ -17,12 +10,19 @@ html {
 }
 
 .middle {
+    background-color: #333;
     display: table-cell;
     vertical-align: middle;
 }
 
 .inner {
+    background-color: #123;
     margin-left: auto;
     margin-right: auto;
-    width: 50px;
+    text-align: center;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #FFF;
+    color: #FFF;
+    width: 900px;
 }
