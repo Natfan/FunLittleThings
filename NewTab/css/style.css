@@ -1,6 +1,9 @@
 html {
     background-color: #000;
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: 'Antipasto', sans-serif;
+    /*font-style: extralight;*/
+    font-variant: extralight;
     color: #FFF;
 }
 
@@ -44,4 +47,17 @@ body {
 
 .bottom_right {
     text-align: right;
+}
+
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333;
+}
+
+a:visited {
+    color: #FFF;
 }
