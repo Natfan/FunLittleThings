@@ -2,7 +2,7 @@
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("file", help="The name of the file you want to get the extension of.")
+parser.add_argument("file", help="The name of the file that you want to get the extension of.")
 args = parser.parse_args()
 
 def ext():
