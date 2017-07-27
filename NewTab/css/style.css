@@ -1,7 +1,7 @@
 html {
     background-color: #000;
     /*font-family: 'Roboto', sans-serif;*/
-    font-family: 'Antipasto', sans-serif;
+    font-family: 'Antipasto', serif;
     /*font-style: extralight;*/
     font-variant: extralight;
     color: #FFF;
@@ -31,7 +31,8 @@ body {
     border-width: 4px;
     border-color: #FFF;
     color: #FFF;
-    width: 1200px;
+    /*width: 200vh;*/
+    width: 90%;
 }
 
 .bottom {
