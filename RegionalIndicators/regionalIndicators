@@ -26,11 +26,14 @@ if len(sys.argv[1:])==0:
 args = parser.parse_args()
 
 def regionalindicators():
-    input = args.input
+    inp = args.input
     output = ""
-    for word in input:
+    for word in inp:
         for char in word:
-            ri = ":regional_indicator_" + char + ":"
+            if char == ' ':
+                ri = ":black_large_square: "
+            else:
+                ri = ":regional_indicator_" + char + ": "
             output += ri
     if output != "":
         if args.s and args.c is None:
