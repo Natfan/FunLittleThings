@@ -106,3 +106,6 @@ SpoTwillio/.user_id.txt
 SpoTwillio/.username.txt
 SpoTwillio/.cache*
 SpoTwillio/__pycache__
+
+# DS_Store
+.DS_Store
