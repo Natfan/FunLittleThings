@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+import argparse
+import sys
+import pyperclip
+
+parser = argparse.ArgumentParser(description="A tool used convert text into REGIONAL INDICATORS, so that you can be as sassy as you please.",
+                                 prog="regionalindicators",
+                                 usage="%(prog)s <input> [flags]")
+parser.add_argument("input",
+                    type=str,
+                    nargs='+',
+                    help="The text that you want to convert into regional indicator text. Must be a string.")
+parser.add_argument("-c",
+                    help="Use this if you want to add the output to your clipboard.",
+                    action='store_true',
+                    #nargs='?',
+                    default=False)
+parser.add_argument("-s",
+                    help="Silent mode, does not print the output. Can only be used with -c",
+                    action='store_true',
+                    default=False)
+if len(sys.argv[1:])==0:
+    parser.print_help()
+    # parser.print_usage() # for just the usage line
+    parser.exit()
+args = parser.parse_args()
+
+def regionalindicators():
+    input = args.input
+    output = ""
+    for word in input:
+        for char in word:
+            ri = ":regional_indicator_" + char + ":"
+            output += ri
+    if output != "":
+        if args.s and args.c is None:
+           print("-s MUST be used with -c.") 
+        if args.c:
+            pyperclip.copy(output)
+            if not args.s:
+                print(output)
+            print("Output copied to clipboard.")
+        else:
+            print(output)
+
+regionalindicators()
