@@ -30,8 +30,9 @@ def regionalindicators():
     output = ""
     for word in inp:
         for char in word:
-            if char == ' ':
+            if char == "\ ":
                 ri = ":black_large_square: "
+                # this wont work atm because python doesnt like you, or spaces because python handles strings like a donkey with an aneurysm
             else:
                 ri = ":regional_indicator_" + char + ": "
             output += ri
