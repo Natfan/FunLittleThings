@@ -28,13 +28,14 @@ args = parser.parse_args()
 def regionalindicators():
     inp = args.input
     output = ""
-    for char in inp:
-        if char == " ":
-            ri = ":black_large_square: "
-            # Maybe fixed?
-        else:
-            ri = ":regional_indicator_" + char + ": "
-        output += ri
+    for word in inp:
+        for char in word:
+            if char == "\ ":
+                ri = ":black_large_square: "
+                # this wont work atm because python doesnt like you, or spaces because python handles strings like a donkey with an aneurysm
+            else:
+                ri = ":regional_indicator_" + char + ": "
+            output += ri
     if output != "":
         if args.s and args.c is None:
            print("-s MUST be used with -c.") 
