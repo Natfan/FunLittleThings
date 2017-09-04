@@ -1,0 +1,7 @@
+#!/bin/bash
+
+shopt -s nullglob
+for i in *.html; do
+    [ -f "$i" ] || break
+    grep -e '\<a\ href\=\".*\.${i}\"]*' $i | sed -e 's/\.html//g' $i > $i.tmp && mv $i.tmp $i
+done
