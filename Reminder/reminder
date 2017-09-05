@@ -3,7 +3,8 @@ import random
 
 items = [
          "You can type 'google <term>' to search from terminal. Instead of 'google', try 'github', 'youtube' or 'wiki'!",
-         "You can use 'imgcat <file>' to output an image straight to terminal!"
+         "You can use 'imgcat <file>' to output an image straight to terminal!",
+         "Using `terminal-notifer` you can get notifications when jobs finish and more!"
        ]
 item = random.choice(items)
 print(item)
