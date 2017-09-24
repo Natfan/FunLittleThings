@@ -4,9 +4,9 @@ The following is a list of subdomains that I shall have on my website as a way t
 
 * i. - images
 * v. - video
-* n. - self hosted netflix
+* [n. - self hosted netflix](https://github.com/dularion/streama/)
 * l. - short links
-* t. - pastebin (text)
-* p. - polls
-* c. - gogs link
+* [t. - pastebin (text)](https://github.com/seejohnrun/haste-server)
+* [p. - polls](https://github.com/nearbycoder/materialpoll)
+* [c. - gogs link](http://79.137.76.55:3000/)
 * m. - hack.chat server
