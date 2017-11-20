@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Salary Calculator | natfan.io</title>
+</header>
+
+<body>
+    <form name="salaryform" action="">
+        Hours Worked Per Day: <input type="text" id="formhours" name="formhours"><br />
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Hours Worked: <span id="hours">0</span></p>
+</body>
+
+<script>
+    var hours = 0;
+    var start = 0900;
+
+    function initiate() {
+        var hoursStr = localStorage.getItem("hours");
+        if (hoursStr == undefined) {
+            localStorage.setItem("hours", 0);
+            hours = 0;
+        } else {
+            hours = parseInt(hoursStr);
+        }
+        document.getElementById("hours").innerHTML = hours;
+    }
+</script>
+</html>
