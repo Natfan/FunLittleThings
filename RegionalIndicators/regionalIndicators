@@ -2,6 +2,11 @@
 import argparse
 import sys
 import pyperclip
+import string
+
+class joinerf(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        setattr(namespace, self.dest, ' '.join(values))
 
 parser = argparse.ArgumentParser(description="A tool used convert text into REGIONAL INDICATORS, so that you can be as sassy as you please.",
                                  prog="regionalindicators",
@@ -9,6 +14,7 @@ parser = argparse.ArgumentParser(description="A tool used convert text into REGI
 parser.add_argument("input",
                     type=str,
                     nargs='+',
+                    action=joinerf,
                     help="The text that you want to convert into regional indicator text. Must be a string.")
 parser.add_argument("-c",
                     help="Use this if you want to add the output to your clipboard.",
@@ -25,16 +31,46 @@ if len(sys.argv[1:])==0:
     parser.exit()
 args = parser.parse_args()
 
+alphanumeric = [
+                'a',
+                'b',
+                'c',
+                'd',
+                'e',
+                'f',
+                'g',
+                'h',
+                'i',
+                'j',
+                'k',
+                'l',
+                'm',
+                'n',
+                'o',
+                'p',
+                'q',
+                'r',
+                's',
+                't',
+                'u',
+                'v',
+                'w',
+                'x',
+                'y',
+                'z'
+                ]
+
 def regionalindicators():
     inp = args.input
     output = ""
-    for word in inp:
-        for char in word:
-            if char == "\ ":
+    for word in list(inp):
+        for char in list(word):
+            if char == " ":
                 ri = ":black_large_square: "
-                # this wont work atm because python doesnt like you, or spaces because python handles strings like a donkey with an aneurysm
-            else:
+            elif char in alphanumeric:
                 ri = ":regional_indicator_" + char + ": "
+            else:
+                ri = ":no_entry_sign:"
             output += ri
     if output != "":
         if args.s and args.c is None:
