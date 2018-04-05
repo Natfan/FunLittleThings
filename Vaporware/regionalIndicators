@@ -1,0 +1,148 @@
+#!/usr/bin/python3
+import argparse
+import sys
+import pyperclip
+import string
+
+class joinerf(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        setattr(namespace, self.dest, ' '.join(values))
+
+parser = argparse.ArgumentParser(description="A tool used convert text into REGIONAL INDICATORS, so that you can be as sassy as you please.",
+                                 prog="regionalindicators",
+                                 usage="%(prog)s <input> [flags]")
+parser.add_argument("input",
+                    type=str,
+                    nargs='+',
+                    action=joinerf,
+                    help="The text that you want to convert into regional indicator text. Must be a string.")
+parser.add_argument("-c",
+                    help="Use this if you want to add the output to your clipboard.",
+                    action='store_true',
+                    #nargs='?',
+                    default=False)
+parser.add_argument("-s",
+                    help="Silent mode, does not print the output. Can only be used with -c",
+                    action='store_true',
+                    default=False)
+if len(sys.argv[1:])==0:
+    parser.print_help()
+    # parser.print_usage() # for just the usage line
+    parser.exit()
+args = parser.parse_args()
+
+vcs = {
+	'0': '０',
+	'1': '１',
+	'2': '２',
+	'3': '３',
+	'4': '４',
+	'5': '５',
+	'6': '６',
+	'7': '７',
+	'8': '８',
+	'9': '９',
+	'A': 'Ａ',
+	'B': 'Ｂ',
+	'C': 'Ｃ',
+	'D': 'Ｄ',
+	'E': 'Ｅ',
+	'F': 'Ｆ',
+	'G': 'Ｇ',
+	'H': 'Ｈ',
+	'I': 'Ｉ',
+	'J': 'Ｊ',
+	'K': 'Ｋ',
+	'L': 'Ｌ',
+	'M': 'Ｍ',
+	'N': 'Ｎ',
+	'O': 'Ｏ',
+	'P': 'Ｐ',
+	'Q': 'Ｑ',
+	'R': 'Ｒ',
+	'S': 'Ｓ',
+	'T': 'Ｔ',
+	'U': 'Ｕ',
+	'V': 'Ｖ',
+	'W': 'Ｗ',
+	'X': 'Ｘ',
+	'Y': 'Ｙ',
+	'Z': 'Ｚ',
+	'a': 'ａ',
+	'b': 'ｂ',
+	'c': 'ｃ',
+	'd': 'ｄ',
+	'e': 'ｅ',
+	'f': 'ｆ',
+	'g': 'ｇ',
+	'h': 'ｈ',
+	'i': 'ｉ',
+	'j': 'ｊ',
+	'k': 'ｋ',
+	'l': 'ｌ',
+	'm': 'ｍ',
+	'n': 'ｎ',
+	'o': 'ｏ',
+	'p': 'ｐ',
+	'q': 'ｑ',
+	'r': 'ｒ',
+	's': 'ｓ',
+	't': 'ｔ',
+	'u': 'ｕ',
+	'v': 'ｖ',
+	'w': 'ｗ',
+	'x': 'ｘ',
+	'y': 'ｙ',
+	'z': 'ｚ',
+	',': '，',
+	'.': '．',
+	':': '：',
+	';': '；',
+	'!': '！',
+	'?': '？'
+	'"': '＂',
+	'\'': '＇',
+	'`': '｀',
+	'^': '＾',
+	'~': '～',
+	'_': '＿',
+	'&': '＆',
+	'@': '＠',
+	'#': '＃',
+	'%': '％',
+	'+': '＋',
+	'-': '－',
+	'*': '＊',
+	'=': '＝',
+	'<': '＜',
+	'>': '＞',
+	'(': '（',
+	')': '）',
+	'[': '［',
+	']': '］',
+	'{': '｛',
+	'}': '｝',
+	'|': '｜',
+	'/': '／',
+	'\\': '＼',
+	'$': '＄',
+}
+
+def vape():
+    inp = args.input
+    output = ""
+    for word in list(inp):
+        for char in list(word):
+            output += vcs.get(char, default=char)
+    if output != "":
+        if args.s and args.c is None:
+           print("-s MUST be used with -c.") 
+        if args.c:
+            pyperclip.copy(output)
+            if not args.s:
+                print(output)
+            print("Output copied to clipboard.")
+        else:
+            print(output)
+
+vape()
