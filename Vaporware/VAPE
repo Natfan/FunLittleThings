@@ -99,7 +99,7 @@ vcs = {
 	':': '：',
 	';': '；',
 	'!': '！',
-	'?': '？'
+	'?': '？',
 	'"': '＂',
 	'\'': '＇',
 	'`': '｀',
@@ -133,16 +133,20 @@ def vape():
     output = ""
     for word in list(inp):
         for char in list(word):
-            output += vcs.get(char, default=char)
+            if char in vcs:
+                vc = vcs.get(char)
+            else:
+                vc = char
+            output += vc
     if output != "":
         if args.s and args.c is None:
            print("-s MUST be used with -c.") 
         if args.c:
-            pyperclip.copy(output)
+            pyperclip.copy(output.encode("utf8"))
             if not args.s:
-                print(output)
+                print(output.encode("utf8"))
             print("Output copied to clipboard.")
         else:
-            print(output)
+            print(output.encode("utf8"))
 
 vape()

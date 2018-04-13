@@ -1,6 +1,6 @@
 #!/bin/bash
 
-return=$PWD
+return="$PWD"
 
 function syntax {
     echo "Syntax: $0 <stats|keys|uauth> <commit message>"
