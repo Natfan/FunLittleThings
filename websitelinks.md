@@ -2,7 +2,7 @@
 
 The following is a list of subdomains that I shall have on my website as a way to quickly and easily access content. If you believe that there are any other webapps that I should host, feel free to make a pull request.
 
-* i. - images
+* i. - images [DONE]
 * v. - video
 * [n. - self hosted netflix](https://github.com/dularion/streama/)
 * l. - short links
