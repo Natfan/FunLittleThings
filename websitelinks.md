@@ -6,7 +6,9 @@ The following is a list of subdomains that I shall have on my website as a way t
 * v. - video
 * [n. - self hosted netflix](https://github.com/dularion/streama/)
 * ~~s. - short links~~ [DONE](https://s.natfan.io/)
-* [t. - pastebin (text)](https://github.com/seejohnrun/haste-server)
+* ~~[paste. - pastebin (text)](https://github.com/seejohnrun/haste-server)~~ [DONE](https://paste.natfan.io/)
 * [p. - polls](https://github.com/nearbycoder/materialpoll)
 * [c. - gogs link](http://79.137.76.55:3000/)
 * m. - hack.chat server
+* ~~[status. - a status page for stuff](http://staytus.co/)~~ [DONE](https://status.natfan.io/)
+* ~~[net. - network infrastructure status page](https://github.com/firehol/netdata/)~~ [DONE](https://net.natfan.io/)
