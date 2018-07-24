@@ -5,7 +5,7 @@ The following is a list of subdomains that I shall have on my website as a way t
 * i. - images [DONE](https://i.natfan.io/)
 * v. - video
 * [n. - self hosted netflix](https://github.com/dularion/streama/)
-* ~~s. - short links~~ [DONE](https://s.natfan.io/)
+* ~~[s. - short links](https://yourls.org/)~~ [DONE](https://s.natfan.io/)
 * ~~[paste. - pastebin (text)](https://github.com/seejohnrun/haste-server)~~ [DONE](https://paste.natfan.io/)
 * [p. - polls](https://github.com/nearbycoder/materialpoll)
 * [c. - gogs link](http://79.137.76.55:3000/)
