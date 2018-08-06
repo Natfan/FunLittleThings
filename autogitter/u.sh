@@ -3,7 +3,7 @@
 return="$PWD"
 
 function syntax {
-    echo "Syntax: $0 <stats|keys|uauth> <commit message>"
+    echo "Syntax: $0 <stats|keys|uauth|whitelist> <commit message>"
 }
 
 if [[ -z $1 || -z $2 ]]; then
@@ -36,6 +36,14 @@ case $1 in
         ssh nat "cd /var/www/html/code.natfan.io/public_html/undertone/; git pull;"
         cd $return
         ;;
+    "whitelist")
+	cd ~/code/whitelist
+	git add .
+	git commit -S -m "$2"
+	git push
+	ssh nat "cd whitelist; git pull"
+	cd $return
+	;;
     *)
         syntax
         cd $return

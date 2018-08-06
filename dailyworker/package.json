@@ -1,0 +1,29 @@
+{
+  "name": "dailyworker",
+  "version": "1.0.0",
+  "description": "Natfan's DailyWorker code, used to schedule tasks that will repeat often via nodeJS.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Natfan/FunLittleThings.git"
+  },
+  "keywords": [
+    "dailyworker",
+    "repeating",
+    "tasks"
+  ],
+  "author": "Natfan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Natfan/FunLittleThings/issues"
+  },
+  "homepage": "https://github.com/Natfan/FunLittleThings#readme",
+  "dependencies": {
+    "@octokit/rest": "^15.9.5",
+    "dotenv": "^6.0.0"
+  }
+}
