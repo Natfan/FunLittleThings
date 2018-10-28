@@ -1,0 +1,82 @@
+#!/usr/bin/python3
+import argparse
+import sys
+import pyperclip
+import string
+import base64
+
+class joinerf(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        setattr(namespace, self.dest, ' '.join(values))
+
+parser = argparse.ArgumentParser(description="A tool used convert text to and from base64.",
+                                 prog="b64",
+                                 usage="%(prog)s <flags> <input>")
+parser.add_argument("input",
+                    type=str,
+                    nargs='+',
+                    action=joinerf,
+                    help="The text that you want to convert to/from base64. Must be a string.")
+parser.add_argument("-e",
+                    help="Use this to encode the text you gave into base64.",
+                    action='store_true',
+                    default=False)
+parser.add_argument("-d",
+                    help="Use this to decode the text you gave into base64.",
+                    action='store_true',
+                    default=False)
+parser.add_argument("-c",
+                    help="Use this if you want to add the output to your clipboard.",
+                    action='store_true',
+                    #nargs='?',
+                    default=False)
+parser.add_argument("-s",
+                    help="Silent mode, does not print the output. Can only be used with -c",
+                    action='store_true',
+                    default=False)
+if len(sys.argv[1:])==0:
+    parser.print_help()
+    # parser.print_usage() # for just the usage line
+    parser.exit()
+args = parser.parse_args()
+
+safechars = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/' ]
+
+def b64():
+    inp = args.input
+    safe = True
+    goodarg = True
+    for word in list(inp):
+        for char in list(word):
+            if char not in safechars:
+                safe = False
+    if not args.e or args.d:
+        goodarg = True
+    if goodarg:
+        if safe:
+            if args.e:
+                if not args.d or args.d is None:
+                    output = base64.b64encode(inp)
+                else:
+                    print("-e cannot be used with -d")
+            if args.d:
+                if not args.e or args.e is None:
+                    output = base64.b64decode(inp)
+                else:
+                    print("-d cannot be used with -e")
+            if output != "":
+                if args.s and args.c is None:
+                    print("-s MUST be used with -c.") 
+                if args.c:
+                    pyperclip.copy(output)
+                    if not args.s:
+                        print(output)
+                    print("Output copied to clipboard.")
+                else:
+                    print(output)
+        else:
+            print("Input contains unsafe characters, must be [A-Za-z0-9\+\\]+")
+    else:
+        print("Invalid arguments")
+
+b64()
