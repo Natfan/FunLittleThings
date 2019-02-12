@@ -43,7 +43,7 @@ def regionalindicators():
             elif char in alphanumeric:
                 ri = ":regional_indicator_" + char + ": "
             else:
-                ri = ":no_entry_sign:"
+                ri = ":no_entry_sign: "
             output += ri
     if output != "":
         if args.s and args.c is None:
